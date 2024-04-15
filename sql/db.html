@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1> DATABASE COMMANDS</h1>
+    <h2> CREATE DATABASE</h2>
+    <div class="intro">
+    <pre>
+        <h3>SYNTAX:</h3>
+        CREATE DATABASE DATABASE_NAME;
+        <h3>Example:</h3>
+              mysql> create database class;
+              Query OK, 1 row affected (0.03 sec)
+    </pre>
+</div>
+    <h2>SHOW DATABASE</h2>
+     <pre>
+        <h3>SYNTAX:</h3>
+         SHOW DATABASES;
+        <h3>EXAMPLE:</h3>
+        mysql> show databases;
+        +--------------------+
+        | Database           |
+        +--------------------+
+        | class              |
+        | collage            |
+        | information_schema |
+        | mysql              |
+        | performance_schema |
+        | practice           |
+        | sys                |
+        +--------------------+
+        7 rows in set (0.04 sec)
+     </pre>
+     <h2>USE DATABASE</h2>
+     <div class="intro">
+     <pre>
+        <h3>SYNTAX:</h3>
+          USE DATABASE_NAME;
+        <h3>EXAMPLE:</h3>
+        mysql> use class;
+        Database changed
+     </pre>
+    </div>
+     <h2>DROP DATABASE</h2>
+    <pre>
+        <h3>SYNTAX:</h3>
+         DROP DATABASE DATABASE_NAME;
+         <h3>EXAMPLE:</h3>
+        <b> mysql> drop database class;</b>
+         Query OK, 1 row affected (0.06 sec)
+
+         mysql> show databases;
+         +--------------------+
+         | Database           |
+         +--------------------+
+         | collage            |
+         | information_schema |
+         | mysql              |
+         | performance_schema |
+         | practice           |
+         | sys                |
+         +--------------------+
+         6 rows in set (0.00 sec)
+    </pre>
+
+</body>
+</html>

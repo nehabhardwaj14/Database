@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <h1>EXCEPTION HANDLING</h1>
+    <div class="st">
+        <p>Exception handling in PL/SQL is vital for gracefully managing errors that may occur during program execution. 
+        PL/SQL provides a robust mechanism for handling exceptions, ensuring that your programs can respond appropriately to unexpected situations</p>
+    </div>
+    <h2>HANDLING EXCEPTIONS:</h2>
+    <div class="block">
+        <h3>SYNTAX:</h3>
+        <pre>
+            BEGIN
+            -- Main block of code
+        EXCEPTION
+            WHEN exception_name1 THEN
+                -- Handling code for exception_name1
+            WHEN exception_name2 THEN
+                -- Handling code for exception_name2
+            ...
+            [WHEN OTHERS THEN
+                -- Default handling code for all other exceptions]
+        END;
+        
+        </pre>
+    </div>
+    <div class="block">
+        <h3>EXAMPLE:</h3>
+        <pre>
+            DECLARE
+            x NUMBER := 0;
+        BEGIN
+            -- Attempting division by zero
+            DBMS_OUTPUT.PUT_LINE(10 / x);
+        EXCEPTION
+            WHEN ZERO_DIVIDE THEN
+                DBMS_OUTPUT.PUT_LINE('Cannot divide by zero');
+        END;
+                
+        </pre>
+    </div>
+    <h2>PREDEFINED EXCEPTIONS</h2>
+     <div class="st">
+        <p>PL/SQL provides a set of predefined exceptions that cover common error scenarios.
+             These predefined exceptions simplify error handling by giving meaningful names to specific error conditions. 
+             Here are some of the commonly used predefined exceptions in PL/SQL:</p>
+            </div>
+             <div class="types">
+             <ul>
+                <li><p><b>NO_DATA_FOUND:</b> Raised when a SELECT INTO statement returns no rows.</p></li> 
+                <li><p><b>TOO_MANY_ROWS:</b> Raised when a SELECT INTO statement returns multiple</p></li>
+                <li><p><b>ZERO_DIVIDE: </b>Raised when an attempt is made to divide by zero.</p></li>
+                <li><p><b>INVALID_NUMBER:</b> Raised when an attempt is made to convert a character string into a number, but the string does not represent a valid number.</p></li>
+                <li><p><b>LOGIN_DENIED: </b>Raised when a login attempt fails due to invalid credentials.</p></li>
+                <li><p><b>PROGRAM_ERROR:</b> Raised when a PL/SQL program encounters an internal error.</p></li>
+                <li><p><b>STORAGE_ERROR: </b>Raised when a PL/SQL program runs out of memory or exceeds memory limits.</p></li>
+                <li><p><b>VALUE_ERROR:</b> Raised when an arithmetic, conversion, or assignment operation encounters an invalid value.</p></li>
+                <li><p><b>CURSOR_ALREADY_OPEN:</b> Raised when attempting to open a cursor that is already open.</p></li>
+                <li><p><b>INVALID_CURSOR: </b>Raised when a cursor operation is attempted on an invalid cursor.</p></li>
+                <li><p><b>TIMEOUT_ON_RESOURCE:</b> Raised when a timeout occurs while waiting for a resource.</p></li>
+                <li><p><b>NO_DATA_NEEDED:</b> Raised when an implicit cursor does not need to fetch any data.</p></li>
+            </ul>
+     </div>
+     <h2>USER-DEFINED EXCEPTIONS</h2>
+     <div class="block">
+        <p>User-defined exceptions in PL/SQL allow you to create custom error conditions tailored to your application's specific requirements. 
+            You can also define your own custom exceptions using the DECLARE section and raise them explicitly when necessary.</p>
+            <h3>SYNTAX:</h3>
+            <pre>
+                DECLARE
+                exception_name EXCEPTION;
+            BEGIN
+                IF condition THEN
+                    RAISE exception_name;
+                END IF;
+            END;            
+            </pre>
+        </div>
+            <div class="block">
+            <h3>EXAMPLE:</h3>
+            <pre>
+                DECLARE
+                my_exception EXCEPTION;
+            BEGIN
+                IF condition THEN
+                    RAISE my_exception;
+                END IF;
+            EXCEPTION
+                WHEN my_exception THEN
+                    DBMS_OUTPUT.PUT_LINE('Custom exception occurred');
+            END;            
+            </pre>
+     </div>
+     <h2> Exception Handling Best Practices:</h2>
+     <div>
+        <ul>
+            <li><p>Catch specific exceptions whenever possible to handle them appropriately.</p></li>
+            <li><p>Always include a catch-all WHEN OTHERS block for handling unexpected exceptions and logging errors.</p></li>
+            <li><p>Use user-defined exceptions to create meaningful error messages and handle specific error scenarios.</p></li>
+            <li><p>Keep exception handling code concise and focused on error recovery or graceful degradation.</p></li>
+        </ul>
+     </div>
+
+</body>
+</html>

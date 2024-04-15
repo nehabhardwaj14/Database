@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>JOINS</h1>
+    <div class="intro">
+    <p>As the name shows, JOIN means to combine something. In case of SQL, JOIN means "to combine two or more tables".</p>
+    <p>The SQL JOIN clause takes records from two or more tables in a database and combines it together.</p>
+    <h3>TYPES OF JOINS</h3>
+    <ul>
+        <li><p>EQUI JOIN</p></li>
+        <li><p>LEFT JOIN</p></li>
+        <li><p>RIGHT JOIN</p></li>
+        <li><p>FULL JOIN </p></li>
+        <li><p>CARTETIAN JOIN</p></li>
+    </ul>
+</div>
+    <pre>
+    <h2>TABLE EMPLOYEE</h2>
+    +-----------------------------------+
+    | emp_id | emp_name | department_id |
+    |--------|----------|---------------|
+    |   1    |   Alice  |       101     |
+    |   2    |   Bob    |       102     |
+    |   3    |   Charlie|       101     |
+    |   4    |   David  |       103     |
+    +-----------------------------------+
+     <h2>TABLE DEPARTMENT</h2>
+     +---------------------+
+     | dept_id | dept_name |
+     |---------|-----------|
+     |  101    |   Sales   |
+     |  102    |   IT      |
+     |  103    |   HR      |
+     +---------------------+
+    </pre>
+    <div class="eq">
+        <h2>EQUI JOIN/INNER JOIN</h2>
+        <ul>
+        <li><p>Equi join returns the matching column values of the associated tables. 
+            It uses a comparison operator in the WHERE clause to refer equality.</p></li>
+        </ul>
+        <div class="intro1">
+        <pre>
+            <h3>SYNTAX:</h3>
+            SELECT column_list FROM table1, table2....  
+             WHERE table1.column_name =  table2.column_name; 
+              <h3>EXAMPLE:</h3>
+              mysql>  SELECT * FROM employees INNER JOIN departments
+               ON employees.department_id = departments.dept_id;
+
+              +---------------------------------------------------------+ 
+              | emp_id | emp_name | department_id | dept_id | dept_name |
+              |--------|----------|---------------|---------|-----------|
+              |   1    |   Alice  |       101     |   101   |   Sales   |
+              |   2    |   Bob    |       102     |   102   |   IT      |
+              |   3    |   Charlie|       101     |   101   |   Sales   |
+              |   4    |   David  |       103     |   103   |   HR      |
+              +---------------------------------------------------------+
+        </pre>
+    </div>
+        <h2>LEFT JOIN</h2>
+        <ul>
+            <li><p>Returns all rows from the left table and the matched rows from the right table. 
+                If there are no matching rows in the right table, NULL values are returned for the columns of the right table.</p></li>
+        </ul>
+        <div class="intro1">
+        <pre>
+            <h3>SYNTAX:</h3>
+            SELECT columns FROM table1 LEFT JOIN table2 ON table1.column = table2.column;
+ 
+            <h3>EXAMPLE :</h3>
+            mysql> SELECT *FROM employees LEFT JOIN departments ON
+             employees.department_id = departments.dept_id;
+            +---------------------------------------------------------+
+            | emp_id | emp_name | department_id | dept_id | dept_name |
+            |--------|----------|---------------|---------|-----------|
+            |   1    |   Alice  |       101     |   101   |   Sales   |
+            |   2    |   Bob    |       102     |   102   |   IT      |
+            |   3    |   Charlie|       101     |   101   |   Sales   |
+            |   4    |   David  |       103     |   103   |   HR      |
+            +---------------------------------------------------------+
+        
+        </pre>
+    </div>
+        <h2>RIGHT JOIN</h2>
+        <ul>
+            <li><p>Returns all rows from the right table and the matched rows from the left table. 
+                If there are no matching rows in the left table, NULL values are returned for the columns of the left table.
+                </p></li>
+        </ul>
+        <div class="intro1">
+        <pre>
+            <h3>SYNTAX:</h3>
+            SELECT columns FROM table1 RIGHT JOIN table2 ON table1.column = table2.column;
+            
+            <h3>EXAMPLE :</h3>
+            mysql> SELECT *FROM employees RIGHT JOIN departments ON
+             employees.department_id = departments.dept_id;
+            +---------------------------------------------------------+
+            | emp_id | emp_name | department_id | dept_id | dept_name |
+            |--------|----------|---------------|---------|-----------|
+            |   1    |   Alice  |       101     |   101   |   Sales   |
+            |   2    |   Bob    |       102     |   102   |   IT      |
+            |   3    |   Charlie|       101     |   101   |   Sales   |
+            |   4    |   David  |       103     |   103   |   HR      |
+            +---------------------------------------------------------+
+            
+        </pre>
+    </div>
+        <h2>FULL JOIN</h2>
+        <ul>
+            <li><p>Returns all rows when there is a match in either the left or right table. If there is no match,
+                 NULL values are returned for the columns of the table without a matching row.</p></li>
+        </ul>
+        <div class="intro1">
+        <pre>
+            <h3>SYNTAX:</h3>
+            SELECT columns FROM table1 FULL JOIN table2 ON table1.column = table2.column;
+            
+            <h3>EXAMPLE :</h3>
+            mysql>  SELECT * FROM employees FULL JOIN departments 
+            ON employees.department_id = departments.dept_id;
+            +---------------------------------------------------------+
+            | emp_id | emp_name | department_id | dept_id | dept_name |
+            |--------|----------|---------------|---------|-----------|
+            |   1    |   Alice  |       101     |   101   |   Sales   |
+            |   2    |   Bob    |       102     |   102   |   IT      |
+            |   3    |   Charlie|       101     |   101   |   Sales   |
+            |   4    |   David  |       103     |   103   |   HR      |
+            +---------------------------------------------------------+
+        </pre>
+    </div>
+        <h2>CROSS JOIN</h2>
+        <ul>
+            <li><p> Returns the Cartesian product of the two tables, i.e., all possible combinations of rows.
+                 It does not require any condition to be met</p></li>
+        </ul>
+        <div class="intro1">
+        <pre>
+            <h3>SYNTAX:</h3>
+             SELECT * FROM TABLE1_NAME CROSS JOIN TABLE2_NAME;
+            <h3>EXAMPLE:</h3>
+            mysql> SELECT *FROM employees CROSS JOIN departments;
+            +---------------------------------------------------------+
+            | emp_id | emp_name | department_id | dept_id | dept_name |
+            |--------|----------|---------------|---------|-----------|
+            |   1    |   Alice  |       101     |   101   |   Sales   |
+            |   2    |   Bob    |       102     |   102   |   IT      |
+            |   3    |   Charlie|       101     |   103   |   HR      |
+            |   4    |   David  |       103     |   101   |   Sales   |
+            |   1    |   Alice  |       101     |   102   |   IT      |
+            |   2    |   Bob    |       102     |   101   |   Sales   |
+            |   3    |   Charlie|       101     |   102   |   IT      |
+            |   4    |   David  |       103     |   102   |   IT      |
+            +---------------------------------------------------------+
+        </pre>
+    </div>
+    </div>
+</body>
+</html>

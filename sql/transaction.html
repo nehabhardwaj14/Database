@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+     <h1>TRANSACTION CONTROL COMMANDS</h1>
+     <div class="intro">
+     <ul>
+        <li><p>Commit and rollback are the transaction control commands in SQL</p></li>
+        <li><p>All the commands that are executed consecutively, treated as a single unit of work and termed as a transaction.</p></li>
+        <li><p>If you want to save all the commands which are executed in a transaction, then just after completing the transaction, 
+            you have to execute the commit command. This command will save all the commands which are executed on a table.
+             All these changes made to the table will be saved to the disk permanently.</p></li>
+        <li><p>Whenever the commit command is executed in SQL, all the updations which we have carried on the table will be uploaded to the server,
+             and hence our work will be saved.</p></li>
+        <li><p>The rollback command is used to get back to the previous permanent status of the table, which is saved by the commit command.</p></li>
+        
+     </ul>
+   </div>
+     <pre>
+        <h3>SYNTAX:</h3>
+        1.    COMMIT;
+         
+         <i>This statement permanently saves the changes made during the current transaction.
+         Once committed, the changes become visible to other database sessions.</i>
+
+        2.    ROLLBACK;
+          
+        <i>This statement rolls back (undoes) any changes made during the current transaction. 
+        It effectively cancels the transaction and restores the database to its state before the transaction began.</i>
+        </pre>
+        <div class="intro1">
+         <pre>
+        <h3>Table student:</h3>
+        mysql> select*from student;
+        +---------+----------+-------+---------+-------+-------+------+
+        | Roll_no | Name     | Class | Section | Marks | Fees  | Age  |
+        +---------+----------+-------+---------+-------+-------+------+
+        |       1 | Neha     | BCA   | A       |    98 | 24000 |   18 |
+        |       2 | Abhishek | BCA   | B       |    90 | 24000 |   19 |
+        |       3 | Asha     | BCA   | A       |    80 | 24000 |   19 |
+        |       4 | Riya     | BCA   | B       |    80 | 24000 |   20 |
+        |       5 | Priya    | BCA   | A       |    40 | 24000 |   18 |
+        |       6 | Misbah   | BCA   | B       |    79 | 24000 |   19 |
+        |       7 | Anil     | BCA   | A       |    20 | 24000 |   20 |
+        |       8 | Aman     | BCA   | B       |    79 | 24000 |   19 |
+        |       9 | Pawan    | BCA   | A       |    75 | 24000 |   19 |
+        +---------+----------+-------+---------+-------+-------+------+
+        9 rows in set (0.00 sec)
+     </pre>
+</div>
+     <pre>
+        <h3>EXAMPLE 1:</h3>
+        mysql> set autocommit=0;
+        Query OK, 0 rows affected (0.01 sec)
+        
+        mysql> delete from student where name="pawan";
+        Query OK, 1 row affected (0.00 sec)
+        
+        mysql> select*from student;
+        +---------+----------+-------+---------+-------+-------+------+
+        | Roll_no | Name     | Class | Section | Marks | Fees  | Age  |
+        +---------+----------+-------+---------+-------+-------+------+
+        |       1 | Neha     | BCA   | A       |    98 | 24000 |   18 |
+        |       2 | Abhishek | BCA   | B       |    90 | 24000 |   19 |
+        |       3 | Asha     | BCA   | A       |    80 | 24000 |   19 |
+        |       4 | Riya     | BCA   | B       |    80 | 24000 |   20 |
+        |       5 | Priya    | BCA   | A       |    40 | 24000 |   18 |
+        |       6 | Misbah   | BCA   | B       |    79 | 24000 |   19 |
+        |       7 | Anil     | BCA   | A       |    20 | 24000 |   20 |
+        |       8 | Aman     | BCA   | B       |    79 | 24000 |   19 |
+        +---------+----------+-------+---------+-------+-------+------+
+        8 rows in set (0.00 sec)
+      </pre>
+   <div class="intro1">
+      <pre>
+        <h3>EXAMPLE 2:</h3>
+        mysql> rollback;
+        Query OK, 0 rows affected (0.01 sec)
+        
+        mysql> select*from student;
+        +---------+----------+-------+---------+-------+-------+------+
+        | Roll_no | Name     | Class | Section | Marks | Fees  | Age  |
+        +---------+----------+-------+---------+-------+-------+------+
+        |       1 | Neha     | BCA   | A       |    98 | 24000 |   18 |
+        |       2 | Abhishek | BCA   | B       |    90 | 24000 |   19 |
+        |       3 | Asha     | BCA   | A       |    80 | 24000 |   19 |
+        |       4 | Riya     | BCA   | B       |    80 | 24000 |   20 |
+        |       5 | Priya    | BCA   | A       |    40 | 24000 |   18 |
+        |       6 | Misbah   | BCA   | B       |    79 | 24000 |   19 |
+        |       7 | Anil     | BCA   | A       |    20 | 24000 |   20 |
+        |       8 | Aman     | BCA   | B       |    79 | 24000 |   19 |
+        |       9 | Pawan    | BCA   | A       |    75 | 24000 |   19 |
+        +---------+----------+-------+---------+-------+-------+------+
+        9 rows in set (0.00 sec)
+     </pre>
+   </div>
+</body>
+</html>

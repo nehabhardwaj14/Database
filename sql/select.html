@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>SELECT COMMAND</h1>
+     <pre>
+      <h3>SYNTAX:</h3>
+        SELECT * FROM TABLE_NAME;
+      </pre>
+        <h3>EXAMPLE 1:</h3>
+        <div class="intro">
+          <pre>
+        mysql> select*from student;
+        +---------+----------+-------+---------+-------+-------+------+
+        | Roll_no | Name     | Class | Section | Marks | Fees  | Age  |
+        +---------+----------+-------+---------+-------+-------+------+
+        |       1 | Neha     | BCA   | A       |    98 | 24000 |   20 |
+        |       2 | Abhishek | BCA   | B       |    90 | 24000 |   19 |
+        |       3 | Asha     | BCA   | A       |    80 | 24000 |   19 |
+        |       4 | Riya     | BCA   | B       |    80 | 24000 |   20 |
+        |       5 | Priya    | BCA   | A       |    30 | 24000 |   18 |
+        |       6 | Misbah   | BCA   | B       |    79 | 24000 |   19 |
+        |       7 | Anil     | BCA   | A       |    10 | 24000 |   20 |
+        |       8 | Aman     | BCA   | B       |    79 | 24000 |   19 |
+        |       9 | Pawan    | BCA   | A       |    75 | 24000 |   19 |
+        +---------+----------+-------+---------+-------+-------+------+
+     </pre>
+    </div>
+    <h3>EXAMPLE 2:</h3>
+    <div class="intro">
+      <pre>
+        mysql> select roll_no, name,age from student;
+        +---------+----------+------+
+        | roll_no | name     | age  |
+        +---------+----------+------+
+        |       1 | Neha     |   20 |
+        |       2 | Abhishek |   19 |
+        |       3 | Asha     |   19 |
+        |       4 | Riya     |   20 |
+        |       5 | Priya    |   18 |
+        |       6 | Misbah   |   19 |
+        |       7 | Anil     |   20 |
+        |       8 | Aman     |   19 |
+        |       9 | Pawan    |   19 |
+        +---------+----------+------+
+        10 rows in set (0.00 sec)
+      </pre>
+    </div>
+    <h3>EXAMPLE 3:</h3>
+      <div class="intro">
+       <pre>
+        
+        mysql> select roll_no, name,fees from student where section="a";
+
+        +---------+-------+-------+
+        | roll_no | name  | fees  |
+        +---------+-------+-------+
+        |       1 | Neha  | 24000 |
+        |       3 | Asha  | 24000 |
+        |       5 | Priya | 24000 |
+        |       7 | Anil  | 24000 |
+        |       9 | Pawan | 24000 |
+        +---------+-------+-------+
+        5 rows in set (0.00 sec)
+       </pre>
+      </div>
+      <h3>EXAMPLE 4:</h3>
+       <div class="intro">
+       <pre>
+        mysql> select*from student where age&lt20;
+        +---------+----------+-------+---------+-------+-------+------+
+        | Roll_no | Name     | Class | Section | Marks | Fees  | Age  |
+        +---------+----------+-------+---------+-------+-------+------+
+        |       2 | Abhishek | BCA   | B       |    90 | 24000 |   19 |
+        |       3 | Asha     | BCA   | A       |    80 | 24000 |   19 |
+        |       5 | Priya    | BCA   | A       |    30 | 24000 |   18 |
+        |       6 | Misbah   | BCA   | B       |    79 | 24000 |   19 |
+        |       8 | Aman     | BCA   | B       |    79 | 24000 |   19 |
+        |       9 | Pawan    | BCA   | A       |    75 | 24000 |   19 |
+        +---------+----------+-------+---------+-------+-------+------+
+        7 rows in set (0.00 sec)
+       </pre>
+      </div>
+</body>
+</html>

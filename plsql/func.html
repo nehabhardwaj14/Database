@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <h1>FUNCTIONS IN PLSQL</h1>
+    <div class="st">
+        <p>In PL/SQL, a function is a named block of code that accepts zero or more input parameters, performs a specific computation or task, 
+            and returns a single value. Functions are similar to procedures but differ in that they always return a value, while procedures may not. 
+            Functions are commonly used to perform calculations, manipulate data, and encapsulate reusable logic within a database schema.</p>
+    </div>
+    <h2>CHARACTERISTICS OF FUNCTIONS</h2>
+    <div class="block2">
+        <ul>
+            <li><p><strong>Named Blocks:</strong>Functions are named blocks of code defined within the database schema. 
+                Once created, they can be invoked by name from other PL/SQL blocks, SQL statements, or external applications.</p> </li>
+            <li> <p><strong>Return Value:</strong>Functions always return a single value. This value can be of any data type supported by PL/SQL, 
+                including scalar types (such as NUMBER, VARCHAR2, DATE) or composite types (such as records or collections).</p> </li>
+            <li><p> <strong>Input Parameters:</strong>Functions can accept zero or more input parameters, allowing you to pass values into 
+                the function for processing. Parameters can have different modes such as IN, OUT, or IN OUT, determining whether they 
+                are read-only, write-only, or read-write.</p></li>
+            <li><p><strong>Encapsulation:</strong>Functions encapsulate specific computations or tasks, hiding the internal logic and
+             complexity from the calling code. This promotes code reuse and reduces dependencies between different parts of the application.</p>
+            </li>
+            <li><p><strong>Return Statement:</strong>Functions use a RETURN statement to return a value to the calling code. The data type of the return value must match the data type declared in the function's specification.</p>
+            </li>
+        </ul>
+    </div>
+   <div>
+    <pre>
+        <h3>SYNTAX:</h3>
+        CREATE [OR REPLACE] FUNCTION function_name
+        [(parameter_name [IN | OUT | IN OUT] parameter_type [, ...])]
+    RETURN return_datatype
+    IS
+        [declaration_section]
+    BEGIN
+        executable_section
+    [EXCEPTION
+        exception_handling_section]
+    END [function_name];    
+    </pre>
+   </div>
+   <div class="block">
+    <pre>
+        <h3>EXAMPLE:</h3>
+        CREATE OR REPLACE FUNCTION calculate_area(radius NUMBER)
+        RETURN NUMBER
+        IS
+            area NUMBER;
+        BEGIN
+            area := 3.14 * radius * radius;
+            RETURN area;
+        END calculate_area;
+        
+    </pre>
+   </div>
+</body>
+</html>

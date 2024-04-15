@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>GROUP BY CLAUSE</h1>
+    <div style="border: 2px solid #ccc; height: 200px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+    <ul>
+        <li><p>The Group By clause is used to arrange similar kinds of records into the groups in the Structured Query Language.</p></li>
+        <li><p>The Group by clause in the Structured Query Language is used with Select Statement. </p></li>
+        <li><p>Group by clause is placed after the where clause in the SQL statement. </p></li>
+        <li><p>The Group By clause is specially used with the aggregate function,like,
+             max (), min (), avg (), sum (), count ().</p></li>
+    </ul>
+</div>
+    <pre>
+        <h3>SYNTAX:</h3>
+        SELECT * FROM TABLENAME GROUP BY COLUMN_NAME;
+    </pre>
+        <div style="border: 2px solid #ccc; height: 290px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+            <pre>
+            <h3>EXAMPLE 1:</h3>
+        mysql> select age from student group by age;
+        +------+
+        | age  |
+        +------+
+        |   18 |
+        |   19 |
+        |   20 |
+        +------+
+        3 rows in set (0.00 sec)
+    </pre>
+    </div>
+    <pre>
+        <h3>EXAMPLE 2:</h3>
+        mysql> select section from student group by section;
+        +---------+
+        | section |
+        +---------+
+        | A       |
+        | B       |
+        +---------+
+        2 rows in set (0.00 sec)
+    </pre>
+        <div style="border: 2px solid #ccc; height: 370px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+            <pre>
+        <h3>EXAMPLE 3:</h3>
+        mysql> select marks,count(marks) from student group by marks;
+        +-------+--------------+
+        | marks | count(marks) |
+        +-------+--------------+
+        |    98 |            1 |
+        |    90 |            2 |
+        |    80 |            2 |
+        |    40 |            1 |
+        |    89 |            2 |
+        |    20 |            1 |
+        |    75 |            1 |
+        +-------+--------------+
+        7 rows in set (0.00 sec)
+    </pre>
+</div>
+    <h1>HAVING CLAUSE</h1>
+    <ul>
+        <li><p>we will use the HAVING clause with the Group By clause for column conditions.</p></li>
+    </ul>
+    <pre>
+        <h3>SYNTAX:</h3>
+        SELECT * FROM TABLENAME GROUP BY COLUMNNAME HAVING CONDITION; 
+    </pre>
+        <div style="border: 2px solid #ccc; height: 280px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+            <pre>
+        <h3>EXAMPLE 1:</h3>
+        mysql> select marks from student group by marks  having min(marks)&lt70;
+        +-------+
+        | marks |
+        +-------+
+        |    40 |
+        |    20 |
+        +-------+
+        2 rows in set (0.00 sec)
+    </pre>
+</div>
+</body>
+</html>

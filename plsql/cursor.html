@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <h1>CURSOR MANAGEMENT</h1>
+    <div class="st">
+        <p>In PL/SQL, cursor management is crucial for working with result sets returned by SQL queries. 
+            Cursors provide a way to traverse through the rows of a result set and perform operations on each row individually. 
+            There are two main types of cursors in PL/SQL: implicit cursors and explicit cursors.</p>
+    </div>
+     <h2>1. Implicit Cursors:</h2>
+     <div class="block2">
+     <p>Implicit cursors are automatically created by PL/SQL for SQL statements like SELECT, INSERT, UPDATE, and DELETE. 
+        They are suitable for simple SQL operations and do not require explicit declaration or management.</p>
+        <pre>
+            <h3>EXAMPLE:</h3>
+            DECLARE
+            employee_name employees.first_name%TYPE;
+        BEGIN
+            SELECT first_name INTO employee_name FROM employees WHERE employee_id = 100;
+            DBMS_OUTPUT.PUT_LINE('Employee Name: ' || employee_name);
+        END;        
+        </pre>
+        <p>In this example, the SELECT statement uses an implicit cursor to retrieve the first name of an employee with ID 100 and 
+            stores it in the employee_name variable.</p>
+        </div>
+        <h2>2. Explicit Cursors:</h2>
+        <div class="block2">
+            <p>Explicit cursors are declared and managed explicitly by the programmer. 
+                They offer more control and flexibility, especially for complex SQL operations where you need to iterate through multiple rows.</p>
+                <pre>
+                    <h3>SYNTAX:</h3>
+                    DECLARE
+                    CURSOR cursor_name IS
+                        SELECT columns FROM table WHERE conditions;
+                    -- Declaration of variables to hold row data
+                BEGIN
+                    OPEN cursor_name; -- Open the cursor
+                    FETCH cursor_name INTO variable_list; -- Fetch the next row into variables
+                    -- Loop to process each row
+                    CLOSE cursor_name; -- Close the cursor
+                END;                
+                </pre>
+        </div>
+        <div class="types">
+            <h3>EXAMPLE:</h3>
+            <pre>
+                DECLARE
+                CURSOR emp_cursor IS
+                    SELECT employee_id, first_name, last_name FROM employees;
+                emp_id employees.employee_id%TYPE;
+                emp_first_name employees.first_name%TYPE;
+                emp_last_name employees.last_name%TYPE;
+            BEGIN
+                OPEN emp_cursor;
+                LOOP
+                    FETCH emp_cursor INTO emp_id, emp_first_name, emp_last_name;
+                    EXIT WHEN emp_cursor%NOTFOUND;
+                    DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_id || ', Name: ' 
+                    || emp_first_name || ' ' || emp_last_name);
+                END LOOP;
+                CLOSE emp_cursor;
+            END;            
+            </pre>
+            <p>In this example, an explicit cursor named emp_cursor is declared to fetch employee IDs, first names, and last names from the employees table.
+                 It opens the cursor, fetches each row into variables, and then processes each row within a loop. Finally, it closes the cursor when done.</p>
+        </div>
+        <h2>CURSOR ATTRIBUTES</h2>
+        <div class="intro">
+        <p>PL/SQL provides several cursor attributes to check the status of explicit cursors:</p>
+        <ul>
+            <li><p>%FOUND: Returns TRUE if a row was fetched successfully.</p></li>
+            <li><p>%NOTFOUND: Returns TRUE if no row was fetched or if the last fetch was unsuccessful</p></li>
+            <li><p>%ROWCOUNT: Returns the number of rows fetched so far</p></li>
+            <li><p>%ISOPEN: Returns TRUE if the cursor is open.</p></li>
+        </ul>
+    </div>
+</body>
+</html>

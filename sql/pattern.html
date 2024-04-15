@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>PATTERN MATCHING </h1>
+    <div class="intro">
+    <ul>
+        <li><p>LIKE clause is used to perform the pattern matching task in SQL.</p></li>
+        <li><p>A WHERE clause is generally preceded by a LIKE clause in an SQL query.</p></li>
+        <li><p>LIKE clause searches for a match between the patterns in a query with the pattern in the values present in an SQL table. 
+            If the match is successful, then that particular value will be retrieved from the SQL table.</p></li>
+        <li><p>LIKE clause can work with strings and numbers.</p></li>
+    </ul>
+    <p><b>The LIKE clause uses the following symbols known as wildcard operators in SQL to perform this pattern-matching task in SQL.</b></p>
+    <ul>
+        <li><p>To represent zero, one or more than one character, % (percentage) is used.</p></li>
+        <li><p>To represent a single character _ (underscore) is used.</p></li>
+    </ul>
+</div>
+     <pre>
+        <h3>SYNTAX:</h3>
+        SELECT ColumnName1, ColumnName2 FROM TableName WHERE ColumnName LIKE [Expression];  
+     </pre>
+     <div class="intro">
+        <h3>EXAMPLE 1:</h3>
+        <pre>
+        mysql> select roll_no,marks,name from student where name like "%a";
+        +---------+-------+-------+
+        | roll_no | marks | name  |
+        +---------+-------+-------+
+        |       1 |    98 | Neha  |
+        |       3 |    80 | Asha  |
+        |       4 |    80 | Riya  |
+        |       5 |    40 | Priya |
+        +---------+-------+-------+
+        4 rows in set (0.00 sec)
+     </pre>
+    </div>
+     <pre>
+        <h3>EXAMPLE 2:</h3>
+        mysql> select name,age,marks from student where name like "%a_";
+        +--------+------+-------+
+        | name   | age  | marks |
+        +--------+------+-------+
+        | Misbah |   19 |    89 |
+        | Aman   |   19 |    89 |
+        | Pawan  |   19 |    75 |
+        +--------+------+-------+
+        3 rows in set (0.00 sec)
+     </pre>
+     <div class="intro">
+     <pre>
+        <h3>EXAMPLE 3:</h3>
+        mysql> select name,section,fees,marks from student where name like "%e__";
+        +------+---------+-------+-------+
+        | name | section | fees  | marks |
+        +------+---------+-------+-------+
+        | Neha | A       | 24000 |    98 |
+        +------+---------+-------+-------+
+        1 row in set (0.00 sec)
+         
+    </pre>
+ </div>
+    <pre>
+        <h3>EXAMPLE 4:</h3>
+        mysql> select name,section,fees,marks from student where name like "____";
+        +------+---------+-------+-------+
+        | name | section | fees  | marks |
+        +------+---------+-------+-------+
+        | Neha | A       | 24000 |    98 |
+        | Asha | A       | 24000 |    80 |
+        | Riya | B       | 24000 |    80 |
+        | Anil | A       | 24000 |    20 |
+        | Aman | B       | 24000 |    89 |
+        +------+---------+-------+-------+
+        5 rows in set (0.00 sec)
+     </pre>
+     <div class="intro">
+       <pre>
+        <h3>EXAMPLE 5:</h3>
+        mysql> select name,section,fees,marks from student where name like "__s%";
+        +--------+---------+-------+-------+
+        | name   | section | fees  | marks |
+        +--------+---------+-------+-------+
+        | Misbah | B       | 24000 |    89 |
+        +--------+---------+-------+-------+
+        1 row in set (0.00 sec)
+       </pre>
+    </div>
+</body>
+</html>

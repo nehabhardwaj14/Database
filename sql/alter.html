@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>ALTER COMMAND</h1>
+    <div style="border: 2px solid #ccc; height: 100px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+      <p>The ALTER TABLE statement in SQL is used to<span class="hell"> add, remove, or modify </span>columns in an existing table.
+        The ALTER TABLE statement is also used to add and remove various constraints on existing tables.</p>
+    </div>
+        <h2>ADD COLUMN</h2>
+    <div style="border: 2px solid #ccc; height: 100px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+        <h3>SYNTAX:</h3>
+        <pre>
+          ALTER TABLE TABLE_NAME ADD NEWCOLUMN_NAME DATATYPE;
+    </pre>   
+        </div>
+          <h3>EXAMPLE:</h3>
+          <pre>
+          mysql> alter table student add optional_sub varchar(9);
+
+          Query OK, 0 rows affected (0.04 sec)
+          Records: 0  Duplicates: 0  Warnings: 0
+
+          mysql> desc student;
+          +--------------+-------------+------+-----+---------+-------+
+          | Field        | Type        | Null | Key | Default | Extra |
+          +--------------+-------------+------+-----+---------+-------+
+          | Roll_no      | int         | NO   | PRI | NULL    |       |
+          | Name         | varchar(20) | YES  |     | NULL    |       |
+          | Class        | char(10)    | YES  |     | NULL    |       |
+          | Section      | char(5)     | YES  |     | NULL    |       |
+          | Marks        | int         | YES  |     | NULL    |       |
+          | Fees         | int         | YES  |     | NULL    |       |
+          | Age          | int         | YES  |     | NULL    |       |
+          | optional_sub | varchar(9)  | YES  |     | NULL    |       |
+          +--------------+-------------+------+-----+---------+-------+
+          8 rows in set (0.00 sec)
+    </pre>
+    <h2>MODIFY COLUMN</h2>
+    <div style="border: 2px solid #ccc; height: 100px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+        <h3>SYNTAX:</h3>
+        <pre>
+        ALTER TABLE TABLE_NAME MODIFY COLUMN column_name column_type;
+    </pre>
+</div>
+    <pre>
+        <h3>EXAMPLE:</h3>
+        mysql> alter table student modify column optional_sub int(2);
+
+        Query OK, 10 rows affected, 1 warning (0.08 sec)
+        Records: 10  Duplicates: 0  Warnings: 1
+          
+        mysql> desc student;
+        +--------------+-------------+------+-----+---------+-------+
+        | Field        | Type        | Null | Key | Default | Extra |
+        +--------------+-------------+------+-----+---------+-------+
+        | Roll_no      | int         | NO   | PRI | NULL    |       |
+        | Name         | varchar(20) | YES  |     | NULL    |       |
+        | Class        | char(10)    | YES  |     | NULL    |       |
+        | Section      | char(5)     | YES  |     | NULL    |       |
+        | Marks        | int         | YES  |     | NULL    |       |
+        | Fees         | int         | YES  |     | NULL    |       |
+        | Age          | int         | YES  |     | NULL    |       |
+        | optional_sub | int         | YES  |     | NULL    |       |
+        +--------------+-------------+------+-----+---------+-------+
+    </pre>
+    <h2>DROP COLUMN</h2>
+    <div style="border: 2px solid #ccc; height: 100px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+        <h3>SYNTAX:</h3>   
+        <pre>
+          ALTER TABLE TABLE_NAME DROP COLUMN_NAME;
+        </pre>
+    </div>
+        <pre>
+          <h3>EXAMPLE:</h3>
+          mysql> alter table student drop optional_sub;
+
+          Query OK, 0 rows affected (0.03 sec)
+          Records: 0  Duplicates: 0  Warnings: 0
+
+          mysql> desc student;
+          +---------+-------------+------+-----+---------+-------+
+          | Field   | Type        | Null | Key | Default | Extra |
+          +---------+-------------+------+-----+---------+-------+
+          | Roll_no | int         | NO   | PRI | NULL    |       |
+          | Name    | varchar(20) | YES  |     | NULL    |       |
+          | Class   | char(10)    | YES  |     | NULL    |       |
+          | Section | char(5)     | YES  |     | NULL    |       |
+          | Marks   | int         | YES  |     | NULL    |       |
+          | Fees    | int         | YES  |     | NULL    |       |
+          | Age     | int         | YES  |     | NULL    |       |
+          +---------+-------------+------+-----+---------+-------+
+          7 rows in set (0.00 sec)
+    </pre>
+</body>
+</html>

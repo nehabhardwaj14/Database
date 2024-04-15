@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <H1>INTRODUCTION</H1>
+     <div class="intro1">
+        <p>PL/SQL, or Procedural Language/Structured Query Language, is Oracle Corporation's procedural language extension for SQL.</p>
+        <p>It allows users to combine SQL statements with procedural constructs like loops, conditions, and variables.</p>
+        <p>his makes it possible to create more complex and powerful database programs and applications.
+
+            In PL/SQL, you can define blocks of code that can be executed together. </p>
+            <p>These blocks can include declarations, procedural statements, SQL queries, and exception handling. </p>
+            <p>PL/SQL is often used for tasks such as writing stored procedures, functions, triggers, and packages within Oracle databases.</p>
+            
+        </div>
+        <div class="first">
+            <p><i>Here's a simple example of a PL/SQL block that calculates the factorial of a number:</i></p>
+            <pre>
+                <h3>EXAMPLE:</h3>
+            DECLARE
+            num INTEGER := 5;
+            factorial INTEGER := 1;
+            BEGIN
+            FOR i IN 1..num LOOP
+               factorial := factorial * i;
+            END LOOP;
+            DBMS_OUTPUT.PUT_LINE('Factorial of ' || num || ' is ' || factorial);
+            END;
+            </pre>
+        </div>
+            <div class="intro">
+           <p>This block declares a variable num and initializes it to 5.</p>
+             <p>It then calculates the factorial of num using a loop and prints the result using the DBMS_OUTPUT.PUT_LINE procedure.</p>
+
+           <p> PL/SQL is a powerful tool for building robust database applications, as it allows for complex business logic to be encapsulated
+             within the database itself, improving performance, security, and maintainability.</p>
+     </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <h1> PLSQL PROCEDURES</h1>
+    <h2>NAMED PROCEDURE</h2>
+    <div class="st">
+        <p>In PL/SQL, a named procedure is a specific type of procedure that has a unique name and is stored in the database schema.
+             Named procedures can be invoked by name from other PL/SQL blocks, SQL statements, or external applications.
+             They are commonly used to encapsulate and execute a series of SQL and PL/SQL statements to perform a specific task or set of tasks.</p>
+    </div>
+    <div>
+        <pre>
+            <h3>SYNTAX:</h3>
+            CREATE [OR REPLACE] PROCEDURE procedure_name
+            [(parameter_name [IN | OUT | IN OUT] parameter_type [, ...])]
+        IS
+            [declaration_section]
+        BEGIN
+            executable_section
+        [EXCEPTION
+            exception_handling_section]
+        END [procedure_name];        
+        </pre>
+    </div>
+    <div class="block">
+        <h3>EXAMPLE:</h3>
+        <pre>
+            CREATE OR REPLACE PROCEDURE calculate_square(
+                p_number IN NUMBER,
+                p_square OUT NUMBER
+            )
+            IS
+            BEGIN
+                p_square := p_number * p_number;
+            END calculate_square;
+            
+        </pre>
+    </div>
+    <h2>STORED PROCEDURE</h2>
+    <div class="st">
+        <p>A stored procedure is a named PL/SQL block stored in the database schema, which can be called and executed repeatedly by various
+             applications or users. Stored procedures encapsulate one or more SQL and PL/SQL statements to perform a specific task or set of tasks.
+              They offer several advantages, including improved performance, code reuse, security, and modularization of code.</p>
+    </div>
+    <div>
+        <pre>
+            <h3>SYNTAX:</h3>
+            CREATE [OR REPLACE] PROCEDURE procedure_name
+            [(parameter_name [IN | OUT | IN OUT] parameter_type [, ...])]
+        IS
+            [declaration_section]
+        BEGIN
+            executable_section
+        [EXCEPTION
+            exception_handling_section]
+        END [procedure_name];
+        
+        </pre>
+    </div>
+    <div class="block2">
+        <pre>
+            <h3>EXAMPLE:</h3>
+            CREATE OR REPLACE PROCEDURE get_employee_info(
+                p_employee_id IN NUMBER,
+                p_first_name OUT VARCHAR2,
+                p_last_name OUT VARCHAR2,
+                p_salary OUT NUMBER
+            )
+            IS
+            BEGIN
+                SELECT first_name, last_name, salary
+                INTO p_first_name, p_last_name, p_salary
+                FROM employees
+                WHERE employee_id = p_employee_id;
+            EXCEPTION
+                WHEN NO_DATA_FOUND THEN
+                    DBMS_OUTPUT.PUT_LINE('Employee not found.');
+            END get_employee_info;
+            
+        </pre>
+    </div>
+</body>
+</html>

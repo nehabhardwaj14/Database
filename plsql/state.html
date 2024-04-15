@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <h1>DECISION CONTROL STRUCTURES IN PLSQL</h1>
+    <div class="st">
+        <p>decision control structures are used to control the flow of execution based on certain conditions.
+             The primary decision control structures in PL/SQL are:</p>
+    </div>
+    <h2>IF-THEN-ELSE:</h2>
+    <p>This structure allows you to execute a block of code if a condition is true and another block if the condition is false.</p>
+    <div>
+        <pre>
+            <h3>SYNTAX:</h3>
+            IF condition THEN
+            statement1;
+         ELSE
+            statement2;
+         END IF;
+         
+        </pre>
+    </div>
+    <div class="block">
+        <pre>
+            <h3>EXAMPLE:</h3>
+            DECLARE
+            x NUMBER := 10;
+        BEGIN
+            IF x > 5 THEN
+                DBMS_OUTPUT.PUT_LINE('x is greater than 5');
+            ELSE
+                DBMS_OUTPUT.PUT_LINE('x is not greater than 5');
+            END IF;
+        END;
+        
+        </pre>
+    </div>
+    <h2>IF ELS IF:</h2>
+    <p>This is used when you have multiple conditions to check.</p>
+    <div>
+        <pre>
+            <h3>SYNTAX:</h3>
+            IF condition1 THEN
+            statement1;
+         ELSIF condition2 THEN
+            statement2;
+         ELSE
+            statement3;
+         END IF;
+         
+        </pre>
+    </div>
+    <div class="block">
+        <h3>EXAMPLE:</h3>
+        <pre>
+            DECLARE
+            x NUMBER := 3;
+        BEGIN
+            IF x > 5 THEN
+                DBMS_OUTPUT.PUT_LINE('x is greater than 5');
+            ELSIF x = 5 THEN
+                DBMS_OUTPUT.PUT_LINE('x is equal to 5');
+            ELSE
+                DBMS_OUTPUT.PUT_LINE('x is less than 5');
+            END IF;
+        END;
+        
+        </pre>
+    </div>
+    <h2>CASE Statement</h2>
+    <p> It evaluates a list of conditions and executes the corresponding block of code for the first condition that is true.</p>
+    <div>
+        <pre>
+            <h3>SYNTAX:</h3>
+            CASE expression
+            WHEN condition1 THEN
+               statement1;
+            WHEN condition2 THEN
+               statement2;
+            ...
+            ELSE
+               statementN;
+         END CASE;
+         
+        </pre>
+    </div>
+    <div class="block2">
+        <h3>EXAMPLE:</h3>
+        <pre>
+            DECLARE
+            day VARCHAR2(10) := 'Wednesday';
+        BEGIN
+            CASE day
+                WHEN 'Monday' THEN
+                    DBMS_OUTPUT.PUT_LINE('It is Monday');
+                WHEN 'Tuesday' THEN
+                    DBMS_OUTPUT.PUT_LINE('It is Tuesday');
+                WHEN 'Wednesday' THEN
+                    DBMS_OUTPUT.PUT_LINE('It is Wednesday');
+                WHEN 'Thursday' THEN
+                    DBMS_OUTPUT.PUT_LINE('It is Thursday');
+                WHEN 'Friday' THEN
+                    DBMS_OUTPUT.PUT_LINE('It is Friday');
+                ELSE
+                    DBMS_OUTPUT.PUT_LINE('It is a weekend');
+            END CASE;
+        END;
+        
+        </pre>
+    </div>
+</body>
+</html>

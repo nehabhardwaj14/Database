@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <h1>VARIABLES AND CONSTANTS</h1>
+    <div class="st">
+        <p>In PL/SQL (Procedural Language/Structured Query Language), 
+            variables and constants play crucial roles in storing and manipulating data within programs. Here's a breakdown of each:</p>
+    </div>
+    <h2>VARIABLES</h2>
+    
+        <ul>
+            <li><p>1.DECLARATION: Variables are declared using the DECLARE keyword followed by the variable name, data type, and optional default value.</p></li>
+            <div class="st">
+                <h3>EXAMPLE:</h3>
+            <pre>
+                DECLARE
+                my_variable NUMBER := 10;
+            </pre>
+            </div>
+            <li><p>2.SCOPE: Variables can be declared at different scopes - local, global, or block-level.</p></li>
+            <li><p>3.DATA TYPE: PL/SQL supports various data types for variables including NUMBER, VARCHAR2, DATE, BOOLEAN, etc.</p></li>
+            <li><p>4.ASSIGNMENT: Values can be assigned to variables using the := assignment operator.</p></li>
+        <div class="st">
+            <h3>EXAMPLE:</h3>
+            <pre>
+                my_variable := 20;
+            </pre>
+            </div>
+            <li><p>5.USAGE: Variables are used to store and manipulate data within PL/SQL blocks or procedures.</p></li>
+            <li><p>6.MUTUABLE: Variables are mutable, meaning their values can be changed during program execution.</p></li>
+        </ul>
+    </div>
+    <h2>CONSTANT</h2>
+    <div>
+        <ul>
+            <li><p>1.DECALARATION: are declared using the CONSTANT keyword followed by the constant name, data type, and value.</p></li>
+           <div class="st">
+            <h3>EXAMPLE:</h3>
+            <pre>
+                CONSTANT pi NUMBER := 3.14;
+            </pre>
+        </div>
+            <li><p>2.SCOPE: Constants are usually declared at the beginning of a program or a package and have global scope within that program or package.</p></li>
+            <li><p>3.DATA TYPE: Constants can have data types similar to variables.</p></li>
+            <li><p>4.VALUE ASSIGNMENT: Constants must be assigned a value at the time of declaration and cannot be changed afterward.</p></li>
+            <li><p>5.USAGE: Constants are used for values that remain constant throughout the execution of a program, such as mathematical constants or configuration settings</p></li>
+        </ul>
+    </div>
+    <div class="block">
+        <h2>EXAMPLE:</h2>
+        <pre>
+            DECLARE
+            -- Variable declaration
+            my_variable NUMBER := 10;
+            
+            -- Constant declaration
+            CONSTANT pi NUMBER := 3.14;
+        BEGIN
+            -- Using variables and constants
+            my_variable := my_variable + 5;
+            DBMS_OUTPUT.PUT_LINE('Updated value: ' || my_variable);
+            DBMS_OUTPUT.PUT_LINE('Value of pi: ' || pi);
+        END;        
+        </pre>
+    </div>
+</body>
+</html>

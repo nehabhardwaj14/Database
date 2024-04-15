@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+     <h1>DELETE COMMAND</h1>
+     <ul>
+        <li><p>The DELETE statement is used to delete rows from a table</p></li>
+        <li><p>To remove a specific row from a table you should use WHERE condition.</p></li>
+     </ul>
+     <pre>
+        <h3>SYNTAX:</h3>
+        DELETE FROM table_name WHERE condition; 
+    </pre>
+         <h3>EXAMPLE:</h3>
+         <div class="intro">
+            <pre>
+         mysql> delete from student where section="b";
+         Query OK, 5 rows affected (0.01 sec)
+          
+         mysql> select*from student;
+         +---------+-------+-------+---------+-------+-------+------+
+         | Roll_no | Name  | Class | Section | Marks | Fees  | Age  |
+         +---------+-------+-------+---------+-------+-------+------+
+         |       1 | Neha  | BCA   | A       |    98 | 24000 |   18 |
+         |       3 | Asha  | BCA   | A       |    80 | 24000 |   19 |
+         |       5 | Priya | BCA   | A       |    40 | 24000 |   18 |
+         |       7 | Anil  | BCA   | A       |    20 | 24000 |   20 |
+         |       9 | Pawan | BCA   | A       |    75 | 24000 |   19 |
+         +---------+-------+-------+---------+-------+-------+------+
+         5 rows in set (0.01 sec)
+        
+     </pre>
+    </div>
+     <h1>TRUNCATE COMMAND</h1>
+       <ul>
+        <li><p>The TRUNCATE statement: it is used to delete all the rows from the table and free the containing space.</p></li>
+        <li><p> TRUNCATE a table, the table structure remains the same, so you will not face any of the above problems.</p></li>
+       </ul>
+        <pre>
+            <h3>SYNTAX:</h3>
+            TRUNCATE TABLE TABLE_NAME; 
+        </pre>
+            <h3>EXAMPLE:</h3>
+            <h4>TABLE SAMPLE:-</h4>
+            <div class="intro">
+                <pre>
+            mysql> select*from sample;
+            +------+--------+
+            | id   | name   |
+            +------+--------+
+            |  101 | harman |
+            |  102 | raju   |
+            |  103 | geet   |
+            |  104 | kiara  |
+            |  105 | anshu  |
+            +------+--------+
+            5 rows in set (0.00 sec)
+
+            mysql> truncate table sample;
+            Query OK, 0 rows affected (0.06 sec)
+        </pre>
+        </div>
+            <pre>
+              
+            <h4>TABLE AFTER TRUNCATE:-</h4>
+            
+            mysql> select*from sample;
+            Empty set (0.00 sec)
+            
+            mysql> desc sample;
+            +-------+-------------+------+-----+---------+-------+
+            | Field | Type        | Null | Key | Default | Extra |
+            +-------+-------------+------+-----+---------+-------+
+            | id    | int         | YES  | UNI | NULL    |       |
+            | name  | varchar(20) | YES  | UNI | NULL    |       |
+            +-------+-------------+------+-----+---------+-------+
+            2 rows in set (0.00 sec)
+        </pre>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <h1>TRIGGERS</h1>
+    <div class="st">
+        <p>In PL/SQL, triggers are special types of stored programs that are automatically executed or fired when certain events occur on a table, 
+            such as INSERT, UPDATE, or DELETE operations. These triggers can be defined to execute either before or after the triggering event, 
+            and they allow you to enforce complex business rules, maintain data integrity, and automate certain tasks within the database.</p>
+    </div>
+    <div class="block2">
+        <pre>
+            <h3>SYNTAX:</h3>
+            CREATE [OR REPLACE] TRIGGER trigger_name
+            {BEFORE | AFTER | INSTEAD OF} {INSERT | UPDATE | DELETE | {DDL_event}}
+            [OF column_name]
+            [ON table_name]
+            [REFERENCING {OLD AS old | NEW AS new | OLD ROW AS old_row | NEW ROW AS new_row}]
+            [FOR EACH {ROW | STATEMENT}]
+            [WHEN (condition)]
+            DECLARE
+                   Declaration-statements
+            BEGIN
+                   Executable-statements
+            EXCEPTION
+                   Exceptio-handling-statements       
+            END;
+        </pre>
+    </div>
+    <h2>TYPES OF TRIGGERS</h2>
+    <h3>1. Before Triggers:</h3>
+    <div class="st">
+      <ul>
+        <li><p>These triggers execute before the triggering event,
+             allowing you to validate data or perform certain actions before the data modification takes place.</p></li>
+             <li><p>They are commonly used for data validation and enforcement of business rules.</p></li>
+      </ul>
+    </div>
+    <h3>2. After Triggers:</h3>
+    <div class="st">
+        <ul>
+            <li><p>These triggers execute after the triggering event has occurred.</p></li>
+            <li><p>They are often used for logging changes, updating related tables, 
+                or enforcing referential integrity after the data modification has taken place.</p></li>
+        </ul>
+    </div>
+    <h3>3. Row-Level Triggers:</h3>
+    <div class="intro">
+        <ul>
+            <li><p>Row-level triggers fire once for each row affected by the triggering event.</p></li>
+            <li><p>They have access to both the old and new values of the affected row(s), allowing for more granular control over the trigger logic.</p></li>
+            <li><p>Commonly used for auditing changes or enforcing complex row-level constraints.</p></li>
+        </ul>
+    </div>
+    <h3>4. Statement-Level Triggers:</h3>
+    <div class="intro">
+        <ul>
+            <li><p>Statement-level triggers fire once for each triggering event, regardless of the number of rows affected.</p></li>
+            <li><p>They do not have access to individual row values and are typically used for tasks that do not depend on specific row data.</p></li>
+            <li><p>Often used for tasks such as logging high-level database operations or enforcing constraints that apply to the entire statement.</p></li>
+        </ul>
+    </div>
+    <h2>DROPPING TRIGGER</h2>
+    <div class="intro1">
+        <pre>
+            <h3>SYNTAX:</h3>
+            DROP TRIGGER trigger_name;
+        </pre>
+        <h3>EXAMPLE:</h3>
+        <pre>
+            DROP TRIGGER update_last_updated;
+        </pre>
+    </div>
+    <h2>EXAMPLE PROGRAM:</h2>
+    <div class="types">
+        <p>-- First, let's create the employees table</p>
+        <pre>
+            CREATE TABLE employees (
+                employee_id NUMBER PRIMARY KEY,
+                first_name VARCHAR2(50),
+                last_name VARCHAR2(50),
+                salary NUMBER,
+                last_updated DATE
+            );
+            
+            <p>-- Next, let's create the trigger</p>
+            CREATE OR REPLACE TRIGGER update_last_updated
+            BEFORE UPDATE ON employees
+            FOR EACH ROW
+            BEGIN
+                :NEW.last_updated := SYSDATE;
+            END;          
+        </pre>
+    </div>
+    <div class="st">
+        <p>Let's see an example of updating an employee's salary</p>
+        <pre>
+            UPDATE employees
+            SET salary = 60000
+            WHERE employee_id = 101;
+            
+        </pre>
+    </div>
+</body>
+</html>

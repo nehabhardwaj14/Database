@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>ORDER BY CLAUSE</h1>
+    <div style="border: 2px solid #ccc; height: 120px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+    <ul>
+    <li><p> Order by clause is used to arrrange data in sorted order.</p></li>
+    <li><p>By default order by clause shows the data in ascending order as per the mention column_name.</p></li>
+    <li><p>To see data in descending order use DESC</p></li>
+    </ul>
+</div>
+    <pre>
+        <h3>SYNTAX:</h3>
+         SELECT * FROM TABLE_NAME ORDER BY COLUMN_NAME ASC/DESC;
+    </pre>
+   <div class="intro1">
+    <pre>
+         <h3>EXAMPLE:</h3>
+         mysql> select name,age from student order by marks desc;
+         +----------+------+
+         | name     | age  |
+         +----------+------+
+         | Neha     |   18 |
+         | Abhishek |   19 |
+         | Misbah   |   19 |
+         | Aman     |   19 |
+         | Asha     |   19 |
+         | Riya     |   20 |
+         | Pawan    |   19 |
+         | Priya    |   18 |
+         | Anil     |   20 |
+         +----------+------+
+         10 rows in set (0.00 sec)
+   </pre>
+        </div>
+        <pre>
+         <h3>EXAMPLE 2:</h3>
+         mysql> select name,age from student order by marks ;
+         +----------+------+
+         | name     | age  |
+         +----------+------+
+         | Anil     |   20 |
+         | Priya    |   18 |
+         | Pawan    |   19 |
+         | Asha     |   19 |
+         | Riya     |   20 |
+         | Misbah   |   19 |
+         | Aman     |   19 |
+         | Abhishek |   19 |
+         | Neha     |   18 |
+         +----------+------+
+         10 rows in set (0.00 sec)
+
+        </pre>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>WHERE CLAUSE</h1>
+    
+    <div style="border: 2px solid #ccc; height: 280px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+    <ul>
+        <li><p>A WHERE clause in SQL is used with the SELECT query.</p></li>
+        <li><p>WHERE clauses can be used to limit the number of rows to be displayed in the result set,
+             it generally helps in filtering the records. </p></li>
+        <li><p>It returns only those queries which fulfill the specific conditions of the WHERE clause.</p></li>
+        <li><p>WHERE clause is used in SELECT, UPDATE, DELETE statement, etc.</p></li>
+        <li><p>Asterisk symbol is used with a WHERE clause in a SELECT query to retrieve all the column of the table.</p></li>
+    </ul>
+</div>
+    <pre>
+    <h3>SYNTAX:</h3>
+    SELECT * FROM TABLENAME WHERE CONDITION;
+    </pre>
+    
+    <div style="border: 2px solid #ccc; height: 390px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+    <pre>
+    <h3>EXAMPLE 1:</h3>
+    mysql> select * from student where marks>70;
+    +---------+----------+-------+---------+-------+-------+------+
+    | Roll_no | Name     | Class | Section | Marks | Fees  | Age  |
+    +---------+----------+-------+---------+-------+-------+------+
+    |       1 | Neha     | BCA   | A       |    98 | 24000 |   18 |
+    |       2 | Abhishek | BCA   | B       |    90 | 24000 |   19 |
+    |       3 | Asha     | BCA   | A       |    80 | 24000 |   19 |
+    |       4 | Riya     | BCA   | B       |    80 | 24000 |   20 |
+    |       6 | Misbah   | BCA   | B       |    89 | 24000 |   19 |
+    |       8 | Aman     | BCA   | B       |    89 | 24000 |   19 |
+    |       9 | Pawan    | BCA   | A       |    75 | 24000 |   19 |
+    +---------+----------+-------+---------+-------+-------+------+
+    8 rows in set (0.00 sec)
+    </pre>
+</div>
+    <pre>
+    <h3>EXAMPLE 2:</h3>
+    mysql> select roll_no,name, marks from student where section="A";
+    +---------+-------+-------+
+    | roll_no | name  | marks |
+    +---------+-------+-------+
+    |       1 | Neha  |    98 |
+    |       3 | Asha  |    80 |
+    |       5 | Priya |    40 |
+    |       7 | Anil  |    20 |
+    |       9 | Pawan |    75 |
+    +---------+-------+-------+
+    5 rows in set (0.00 sec)
+</pre>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>TABLE COMMANDS</h1>
+    <h2>CREATE TABLE</h2>
+    <div class="intro">
+        <h3> SYNTAX:</h3> 
+    <pre>
+        CREATE TABLE TABLE_NAME(Column1 datatype (size) constraints,
+        column2 datatype (size) constraint,....);
+        <h3>EXAMPLE:</h3>
+        mysql> create table student(ROLL_NO int(2),NAME varchar(20),
+        class varchar(20),ADDRESS varchar(30));
+        Query OK, 0 rows affected, 1 warning (0.05 sec)
+    </pre>
+</div>
+    <h2>SHOW TABLES</h2>
+    <div>
+        <h3>SYNTAX:</h3>
+    <pre>
+         SHOW TABLES;
+        <h3>EXAMPLE:</h3>
+         mysql> use class;
+         Database changed
+
+         mysql> show tables;
+         +-------------------+
+         | Tables_in_collage |
+         +-------------------+
+         | sample            |
+         | student           |
+         +-------------------+
+         2 rows in set (0.00 sec)
+    </pre>
+</div>
+     <h2>DESCRIBE TABLE</h2>
+     <div class="intro1">
+        <h3>SYNTAX:</h3>
+     <pre>
+          DESC TABLE_NAME;
+              OR
+          DESCRIBE TABLE_NAME;
+          <h3>EXAMPLE:</h3>
+          mysql> desc student;
+          +---------+-------------+------+-----+---------+-------+
+          | Field   | Type        | Null | Key | Default | Extra |
+          +---------+-------------+------+-----+---------+-------+
+          | Roll_no | int         | NO   | PRI | NULL    |       |
+          | Name    | varchar(20) | YES  |     | NULL    |       |
+          | Class   | char(10)    | YES  |     | NULL    |       |
+          | Section | char(5)     | YES  |     | NULL    |       |
+          | Marks   | int         | YES  |     | NULL    |       |
+          | Fees    | int         | YES  |     | NULL    |       |
+          | Age     | int         | YES  |     | NULL    |       |
+          +---------+-------------+------+-----+---------+-------+
+          7 rows in set (0.00 sec)   
+     </pre>
+    </div>
+     <h2>DROP TABLE</h2>
+     <div>
+     <pre>
+        <h3>SYNTAX:</h3>
+         DROP TABLE TABLE_NAME;
+        <h3>EXAMPLE:</h3>
+        mysql> drop table sample;
+        Query OK, 0 rows affected (0.04 sec)
+     </pre>
+    </div>
+</body>
+</html>

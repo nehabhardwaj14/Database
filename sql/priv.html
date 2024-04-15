@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>GRANT</h1>
+    <div class="grant">
+    <p>In MySQL, the GRANT statement is used to grant specific privileges to database users or roles.</p>
+    <p> These privileges can include various permissions such as SELECT, INSERT, UPDATE, DELETE, and more. Here's the basic syntax:</p>
+  </div>
+     <pre>
+        <h3>SYNTAX:</h3>
+        GRANT privileges ON database_name.table_name TO 'user'@'host';
+     </pre>
+     <div style="border: 2px solid #ccc; height: 200px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+      <h3>EXAMPLE 1:</h3>
+      <pre>
+        Example to grant SELECT privileges on all tables in the 
+        school database to a user named 'john' from localhost:
+
+        mysql>GRANT SELECT ON school.* TO 'john'@'localhost';
+      </pre>
+      </div>
+      <div>
+        <pre>
+        <h3>EXAMPLE 2:</h3>
+        Example to grant multiple privileges at once:
+
+        mysql>GRANT SELECT, INSERT, UPDATE ON employees.* TO 'john'@'localhost';
+      </pre>
+    </div>
+    <div style="border: 2px solid #ccc; height: 200px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+      <h3>EXAMPLE 3:</h3>
+      <pre>
+        Example to grant all privileges on all tables in the 
+        school database to a user named 'john' from localhost:
+
+        mysql>GRANT ALL PRIVILEGES ON school.* TO 'john'@'localhost';
+      </pre>
+    </div>
+    <div>
+      <pre>
+        <h3>EXAMPLE 4:</h3>
+         Example to grant all privileges on all databases to a user named 'john' from localhost:
+
+       mysql> GRANT ALL PRIVILEGES ON *.* TO 'john'@'localhost';
+
+     </pre>
+    </div>
+      
+     <h1>REVOKE</h1>
+     <div class="grant">
+     <p>In MySQL, the REVOKE statement is used to revoke previously granted privileges from users or roles.</p>
+     <p>It effectively removes specific privileges from a user, limiting their access to certain databases, tables, or columns.</p>
+    </div>
+     <pre>
+        <h3>SYNTAX:</h3>
+        REVOKE privileges ON database_name.table_name FROM 'user'@'host';
+      </pre>
+    <div  style="border: 2px solid #ccc; height: 200px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+      <pre>
+        <h3>EXAMPLE 1:</h3>
+        Example to revoke SELECT privileges on all tables in the school database 
+        to a user named 'john' from localhost:
+
+        mysql>REVOKE SELECT ON school.* TO 'john'@'localhost';
+      </pre>
+    </div>
+    <div>
+      <pre>
+        <h3>EXAMPLE 2:</h3>
+        Example to revoke multiple privileges at once:
+
+        mysql>REVOKE SELECT, INSERT, UPDATE ON school.* TO 'john'@'localhost';
+      </pre>
+    </div>
+    <div  style="border: 2px solid #ccc; height: 200px; width: 900px; padding: 10px; background-color: #f9f9f9; font-size: 19px;">
+      <pre>
+        <h3>EXAMPLE 3:</h3>
+        Example to revoke all privileges on all tables in the school database
+        to a user named 'john' from localhost:
+
+        mysql>REVOKE ALL PRIVILEGES ON school.* TO 'john'@'localhost';
+      </pre>
+    </div>
+    <div>
+      <pre>
+        <h3>EXAMPLE 4:</h3>
+        Example to revoke all privileges on all databases to a user named 'john' from localhost:
+
+        mysql>REVOKE ALL PRIVILEGES ON *.* TO 'john'@'localhost';
+     </pre>
+    </div>
+</body>
+</html>

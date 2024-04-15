@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <h1>PAKAGES IN PLSQL</h1>
+    <div class="st">
+        <p>In PL/SQL, a package is a schema object that groups related procedures, functions, variables, cursors, and other PL/SQL 
+            constructs into a single unit. Packages provide a way to organize and modularize code within the database schema, 
+            making it easier to manage and maintain complex applications.</p>
+    </div>
+    <h2>CHARACTERISTICS OF PACKAGES</h2>
+    <div class="types">
+    <p>In PL/SQL, packages provide a way to organize and modularize code within the database schema. Let's explore the characteristics of packages:</p>
+
+    <ul>
+        <li> <p><b>Logical Grouping:</b>Packages allow you to logically group related PL/SQL constructs together.</p></li>
+        <li><p><b>Encapsulation:</b>Packages encapsulate implementation details, hiding the internal logic and complexity from the calling code.</p></li>
+        <li><p><b>Public and Private Components:</b>Packages can contain both public and private components. 
+        Public components are accessible from outside the package, while private components are only accessible within the package itself.</p></li>
+        <li><p><b>Specification and Body:</b>A package consists of two parts: the package specification and the package body.
+             The specification defines the public interface of the package, while the body contains the implementation.</p></li>
+        <li> <p><b>Persistent State:</b>Package variables maintain their state across multiple invocations of the procedures and functions within the package.</p></li>
+        <li><p><b>Improved Performance:</b>Packages can improve performance by reducing the overhead associated with parsing and optimizing code.</p></li>
+    </ul>
+    </div>
+    <div>
+        <pre>
+            <h3>SYNTAX:</h3>
+            CREATE [OR REPLACE] PACKAGE package_name
+            IS
+                -- Declarations of public components (procedures, functions, variables, cursors)
+            END package_name;
+            
+            CREATE [OR REPLACE] PACKAGE BODY package_name
+            IS
+                -- Implementations of public components
+            END package_name;
+            
+        </pre>
+    </div>
+    <div style="border: 2px solid #ccc; height: 800px; width: 900px; padding: 10px; background-color: #f9f9f9;">
+        <h3>EXAMPLE:</h3>
+        <p>Here's an example of a simple package that defines procedures and functions for calculating the area and circumference of a circle:</p>
+        <pre>
+            CREATE OR REPLACE PACKAGE circle_package
+            IS
+                -- Public procedure declarations
+                PROCEDURE calculate_area(radius IN NUMBER, area OUT NUMBER);
+                PROCEDURE calculate_circumference(radius IN NUMBER, circumference OUT NUMBER);
+            
+                -- Public function declarations
+                FUNCTION get_circle_description(radius IN NUMBER) RETURN VARCHAR2;
+            END circle_package;
+            
+            CREATE OR REPLACE PACKAGE BODY circle_package
+            IS
+                -- Procedure implementations
+                PROCEDURE calculate_area(radius IN NUMBER, area OUT NUMBER)
+                IS
+                BEGIN
+                    area := 3.14 * radius * radius;
+                END calculate_area;
+            
+                PROCEDURE calculate_circumference(radius IN NUMBER, circumference OUT NUMBER)
+                IS
+                BEGIN
+                    circumference := 2 * 3.14 * radius;
+                END calculate_circumference;
+            
+                -- Function implementation
+                FUNCTION get_circle_description(radius IN NUMBER) RETURN VARCHAR2
+                IS
+                BEGIN
+                    RETURN 'A circle with radius ' || TO_CHAR(radius);
+                END get_circle_description;
+            END circle_package;
+            
+        </pre>
+    </div>
+</body>
+</html>

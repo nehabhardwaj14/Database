@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+     <h1>BLOCK STRUCTURE </h1>
+     <div class="st">
+        <p>In PL/SQL, code is organized into blocks. Each block has a specific structure consisting of declarations,
+         executable statements, exception handling, and other optional parts. Here's the general structure of a PL/SQL block:</p>
+     </div>
+     <p><i>A block is a fundamental structure used to organize code. A block consists of several sections:</i></p>
+     <div class="block">
+        <p><b>1.Declaration Section: </b>This section is optional and is used to declare variables, constants, cursors, and other program objects that will 
+            be  used within the block. Declarations are made using the DECLARE keyword.</p>
+            <pre>
+                <h3>EXAMPLE:</h3>
+                DECLARE
+                x INTEGER;
+                y VARCHAR2(50);
+                -- Additional declarations go here
+            
+            </pre>
+        </div>
+         <div class="block2">
+            <p><b>2.Executable Section (or Main Section):</b>This section is mandatory and contains the executable statements of the PL/SQL block. </p>
+            <p>It can include SQL queries, procedural statements (such as loops, conditional statements, etc.), and calls to other procedures or functions.
+                 The executable section begins with the BEGIN keyword and ends with the END keyword.</p>
+                <pre>
+                    <h3>EXAMPLE:</h3>
+                    BEGIN
+                    x := 10; -- Assignment statement
+                    y := 'Hello, World!'; -- Assignment statement
+                    -- Additional executable statements go here
+                   END;
+                </pre> </div>
+                <div class="block">
+                <p><b>3.Exception Handling Section: </b>This section is optional and is used to handle exceptions (errors) 
+                    that may occur during the execution of the block. </p>
+                    <p>You can specify different exception handlers to deal with specific types of errors.
+                         The exception handling section begins with the EXCEPTION keyword.</p>
+                        <pre>
+                            <h3>EXAMPLE:</h3>
+                            EXCEPTION
+                            WHEN others THEN
+                                -- Exception handler code goes here                        
+                        </pre> 
+                    </div>
+                         <div class="block2">
+                        <p><i>Here's a simple example of a PL/SQL block demonstrating these sections:</i></p>
+                        <h3>EXAMPLE:</h3>
+                            <pre>
+                            DECLARE
+                            -- Declaration Section
+                            x INTEGER := 10;
+                       BEGIN
+                            -- Executable Section
+                            IF x > 0 THEN
+                                    DBMS_OUTPUT.PUT_LINE('x is positive.');
+                            ELSE
+                                    DBMS_OUTPUT.PUT_LINE('x is non-positive.');
+                             END IF;
+                       EXCEPTION
+                            -- Exception Handling Section
+                            WHEN others THEN
+                                DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
+                       END;
+                            </pre>
+                        </div>
+                            <ul>
+                                <li><p>The DECLARE section declares an integer variable x and initializes it with the value 10.</p></li>
+                                <li><p>The BEGIN section contains an IF statement that checks if x is greater than 0 and prints a message accordingly.</p></li>
+                                <li><p>The EXCEPTION section handles any exceptions that occur during the execution of the block, printing an error message if any exception is caught.</p></li>
+                            </ul>
+        </div>
+   </body>
+    </html>

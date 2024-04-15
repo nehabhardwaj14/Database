@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <h1>DATA TYPES</h1>
+    <div class="st">
+        <p>In PL/SQL, data types are used to specify the type of data that a variable, constant, parameter, or column can hold. 
+            PL/SQL supports several built-in data types, including scalar, composite, and reference types. 
+            Here's an explanation of some common data types in PL/SQL:</p>
+    </div>
+    <div class="types">
+        <h3>Scalar Data Types:</h3>
+        <ul>
+      <li><p>  INTEGER: Holds whole numbers, both positive and negative, within a specific range.</p></li>
+        
+        <li><p>NUMBER: Represents numeric data, including integers and floating-point numbers. It can hold very large or very small numbers, depending on the precision and scale specified.</p></li>
+        
+       <li><p> VARCHAR2: Stores variable-length character strings. The maximum length must be specified when declaring the variable.</p></li>
+        
+        <li><p>CHAR: Similar to VARCHAR2 but stores fixed-length character strings. Trailing spaces are padded to fill the specified length.</p></li>
+        
+        <li><p>BOOLEAN: Represents a Boolean value, which can be either TRUE, FALSE, or NULL.</p></li>
+        
+        <li><p>DATE: Stores date and time values. PL/SQL handles date and time information together.</p></li>
+        
+        <li><p>TIMESTAMP: Similar to DATE but includes fractional seconds precision.</p></li>
+        
+        <li><p>CLOB: Stands for Character Large Object and is used to store large amounts of character data.</p></li>
+        
+        <li><p>BLOB: Stands for Binary Large Object and is used to store large binary data such as images, documents, etc.</p></li>
+    </ul>
+    </div>
+    <h3>Composite Data Types:</h3>
+    <div class="st">
+        <ul>
+            <li><p>RECORD: Also known as a row type, it allows you to create a structure that contains multiple fields of different data types.</p></li>
+
+           <li><p> TABLE:Represents a collection of elements, each with the same data type. You can use it to store multiple rows of data</p></li>
+        </ul>
+    </div>
+    <h3>Reference Data Types:</h3>
+    <div class="st">
+        <ul>
+            <li><p>CURSOR: Represents a pointer to a result set returned by a SQL query. It allows you to iterate through the rows returned by the query.</p></li>
+            <li><p>REF CURSOR: Similar to a cursor but declared as a data type. It's often used in PL/SQL procedures to return query results to the caller.</p></li>
+        </ul>
+    </div>
+    <h3>LOB Data Types:</h3>
+    <div class="intro">
+        <ul>
+            <li><p>BFILE: Represents a large binary file stored outside the database in the operating system's file system.</p></li>
+            <li><p>NCLOB: Similar to CLOB but stores national character set data.</p></li>
+            <li><p>BINARY_DOUBLE: Stores double-precision floating-point numbers in binary format</p></li>
+            <li><p>BINARY_FLOAT: Stores single-precision floating-point numbers in binary format.</p></li>
+        </ul>
+    </div>
+    <p><b>NOTE:</b> Each data type has specific characteristics and limitations, 
+        so it's essential to choose the appropriate data type based on the nature of the data being stored.</p>
+</body>
+</html>

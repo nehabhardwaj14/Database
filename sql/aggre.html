@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+     <h1>AGGREGATE FUNCTIONS</h1>
+     <div class="intro">
+     <ul>
+        <li><p>Aggregate functions in SQL are unique functions that work on a group of rows in a table and produce a single value as a result. </p></li>
+        <li><p>These operations are used to calculate a set of numbers and produce summary statistics like sum, count, average, maximum, and minimum.</p></li>
+        <li><p>A condition involving an aggregate function can be used to filter the results of a query using the HAVING or WHERE clause.</p></li>
+     </ul>
+     <p><i><b>Below are a few frequently used aggregate functions in SQL.</b></i></p>
+     <ul>
+        <li>Count()</li>
+        <li>Sum()</li>
+        <li>Avg()</li>
+        <li>Min()</li>
+        <li>Max()</li>
+     </ul>
+   </div>
+     <pre>
+        <h3>SYNTAX:</h3>
+        SELECT AGGREGATE_FUNCTION(column_name) FROM TABLE_NAME WHERE condition; 
+     </pre>
+     <h3>TABLE STUDENT</h3>
+     <div class="intro">
+      <pre> 
+        mysql> select*from student;
+        +---------+-------+-------+---------+-------+-------+------+
+        | Roll_no | Name  | Class | Section | Marks | Fees  | Age  |
+        +---------+-------+-------+---------+-------+-------+------+
+        |       1 | Neha  | BCA   | A       |    98 | 24000 |   18 |
+        |       2 | Asha  | BCA   | A       |    80 | 24000 |   19 |
+        |       3 | Priya | BCA   | A       |    40 | 24000 |   18 |
+        |       4 | Anil  | BCA   | A       |    20 | 24000 |   20 |
+        |       5 | Pawan | BCA   | A       |    75 | 24000 |   19 |
+        +---------+-------+-------+---------+-------+-------+------+
+        5 rows in set (0.00 sec)
+      </pre>
+   </div>
+   <pre>
+        <h3>EXAMPLE 1:</h3>
+        mysql> select count(name) from student where section="a";
+        +------------+
+        | count(age) |
+        +------------+
+        |          5 |
+        +------------+
+        1 row in set (0.01 sec)
+      </pre>
+      <div class="intro">
+        <pre>
+         <h3>EXAMPLE 2:</h3>
+         mysql> select max(marks) from student ;
+         +------------+
+         | max(marks) |
+         +------------+
+         |         98 |
+         +------------+
+         1 row in set (0.00 sec)
+      </pre>
+   </div>
+         <pre>
+         <h3>EXAMPLE 3:</h3>
+         mysql> select min(marks) from student where age=19;
+         +------------+
+         | min(marks) |
+         +------------+
+         |         75 |
+         +------------+
+         1 row in set (0.00 sec)
+      </pre>
+      <div class="intro">
+         <pre>
+         <h3>EXAMPLE 4:</h3>
+         mysql> select sum(fees) from student;
+         +-----------+
+         | sum(fees) |
+         +-----------+
+         |    120000 |
+         +-----------+
+         1 row in set (0.01 sec)
+      </pre>
+   </div>
+         <pre>
+         <h3>EXAMPLE 5:</h3>
+         mysql> select avg(marks) from student;
+         +------------+
+         | avg(marks) |
+         +------------+
+         |    62.6000 |
+         +------------+
+         1 row in set (0.01 sec)
+     </pre>
+</body>
+</html>
